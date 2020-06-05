@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { OPTIONS } from '../config/constants';
 import { Size } from '../actions/types';
 import { addToppings, removeToppings } from '../actions/builder';
-import Cart from '../components/Cart';
 import { getMaxToppings } from '../utilities/toppings';
 
 const { toppings } = OPTIONS;
@@ -19,6 +18,7 @@ interface Props {
 }
 
 const ChooseToppings: React.SFC<Props> = ({
+  history,
   selectedSize,
   selectedToppings,
   addToppings,
@@ -34,6 +34,8 @@ const ChooseToppings: React.SFC<Props> = ({
     removeToppings(index);
   }
 
+  const onCheckout = () => history.push('/confirm')
+
   const filteredToppings = toppings.filter(topping => !selectedToppings.includes(topping.label));
 
   return (
@@ -47,7 +49,7 @@ const ChooseToppings: React.SFC<Props> = ({
       </nav>
 
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-6">
           <h4 className="d-flex justify-content-between align-items-center mb-3">
             <span className="text-muted">List of Toppings</span>
           </h4>
@@ -66,7 +68,7 @@ const ChooseToppings: React.SFC<Props> = ({
           </ul>
         </div>
 
-        <div className="col-md-4">
+        <div className="col-md-6">
           <h6 className="d-flex justify-content-between align-items-center mb-3">
             <span>{selectedSize.label} Size has a maximum toppings of {getMaxToppings(selectedSize.label || "Small")}.</span>
           </h6>
@@ -76,9 +78,7 @@ const ChooseToppings: React.SFC<Props> = ({
               <li className="list-group-item" key={uuidv4()} onClick={() => onRemove(k)}>{topping}</li>
             ))}
           </ul>
-        </div>
-        <div className="col-md-4">
-          <Cart />
+          <button className="mt-4 btn btn-primary btn-block" onClick={onCheckout}>Checkout</button>
         </div>
       </div>
     </div>

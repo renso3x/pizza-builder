@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import _ from 'lodash';
 
 import { OPTIONS } from '../config/constants';
 import { Crust } from '../actions/types';
@@ -26,7 +25,7 @@ const ChooseCrust: React.SFC<Props> = ({ history, selectedCrust, selectCrust }) 
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item active" aria-current="page">
-            Pick your crust: {_.isEmpty(selectedCrust) ? 'You have not selected any.' : selectedCrust.label}
+            Pick your crust
           </li>
         </ol>
       </nav>

@@ -8,7 +8,7 @@ interface Props {
   builder: PizzaBuilder
 }
 
-const Checkout: React.SFC<Props> = ({
+const Confirm: React.SFC<Props> = ({
   builder: {
     selectedCrust,
     selectedSize,
@@ -17,9 +17,13 @@ const Checkout: React.SFC<Props> = ({
 }) => {
   return (
     <React.Fragment>
-      <h4 className="d-flex justify-content-between align-items-center mb-3">
-        <span className="text-muted">Cart</span>
-      </h4>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item active" aria-current="page">
+            Please see you custom pizza details:
+          </li>
+        </ol>
+      </nav>
       <ul className="list-group mb-3">
         <li className="list-group-item d-flex justify-content-between lh-condensed">
           <div>
@@ -62,4 +66,4 @@ const mapStateToProps = ({ builder }: any) => {
   }
 }
 
-export default connect(mapStateToProps)(Checkout);
+export default connect(mapStateToProps)(Confirm);

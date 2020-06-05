@@ -12,6 +12,7 @@ const Home = lazy(() => import('./containers/Home'));
 const ChooseSize = lazy(() => import('./containers/ChooseSize'));
 const ChooseCrust = lazy(() => import('./containers/ChooseCrust'));
 const ChooseToppings = lazy(() => import('./containers/ChooseToppings'));
+const Confirm = lazy(() => import('./containers/Confirm'));
 
 export const App: React.FC = (): JSX.Element => (
   <Router>
@@ -21,6 +22,7 @@ export const App: React.FC = (): JSX.Element => (
           <Route path="/choose-size" component={ChooseSize} />
           <Route path="/choose-crust" component={ChooseCrust} />
           <Route path="/choose-toppings" component={ChooseToppings} />
+          <Route path="/confirm" component={Confirm} />
           <Route path="/" component={Home} />
         </Switch>
       </Suspense>

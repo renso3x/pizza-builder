@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import _ from 'lodash';
 
 import { OPTIONS } from '../config/constants';
 import { selectSize } from '../actions/builder';
@@ -26,7 +25,7 @@ const ChooseSize: React.SFC<Props> = ({ history, selectedSize, selectSize }) => 
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item active" aria-current="page">
-            Pick a Size: {_.isEmpty(selectedSize) ? 'You have not selected any.' : selectedSize.label}
+            Pick a Size
           </li>
         </ol>
       </nav>
